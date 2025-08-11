@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* *{
+            outline: 1px solid black;
+        } */
+        body{
+            margin: 0%;
+        }
+        .navbar{
+            z-index: 10;
+            top: 0%;
+            position: sticky;
+            display: flex;
+            flex-direction: column;
+            height: 90px;
+            box-shadow: 0px 0px 10px black;
+            background-color: cornflowerblue;
+        }
+        h1{
+            width: 100vw;
+            height: 50%;
+            margin-top: 0%;
+        }
+        .navigation{
+            margin-top: 30px;
+            display: flex;
+            position: absolute;
+            margin-left: 40px;
+            align-items: center;
+        }
+        #home,#Date{
+            margin-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .todaytask{
+            margin-top: 20px;
+            width: 100vw;
+            align-items: center;
+            
+            
+        }
+        .di{
+        display: flex;
+            position: relative;
+            height: 40px;
+            background-color: lightblue;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+        .today{
+          position: relative;
+          width: 100vw;
+          height: 100px;
+        }
+        .content{
+            
+        
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #home:active, #Date:active{
+               background-color: azure;
+        }
+        .box{
+            margin-top: 0%;
+            width: 100vw;
+            display: none;
+            position: relative;
+            flex-direction: column;
+            
+            }
+        .remain{
+            position: absolute;
+            left:50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            
+        }
+        #add{
+            width: 60px;
+            margin-left: 32%;
+        }
+        #eve,#rem{
+            margin: 5px;
+        }
+        .dates{
+            display: none;
+            margin-top: 180px;
+            width: 100vw;
+        }
+        .things{
+            display: flex;
+            height: 40px;
+            border-radius: 5px;
+            position: relative;
+            margin-top: 5px;
+            background-color: lightsteelblue;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="navbar" id="nav">
+            <h1>Day Planner</h1>
+            <div class="navigation">
+                <p id="home">Home</p>
+                <p id="Date">Add Date</p>
+            </div>
+    </div>
+
+    <div class="today" id="to">
+            <div class="content">
+                <h2>Today's Tasks</h2>
+                <input type="text" id="task" placeholder="Enter the task">
+                <button id="submit" style="width: 60px; margin-left: 30%; margin-top: 5px; margin-bottom: 5px;">Submit</button>
+            </div>
+    </div>
+   
+     <div class="todaytask" id="tod" ></div>
+
+    <div class="box" id="boxx">
+        <div class="remain" id="remainder">
+            <h2>Add a date</h2>
+            <input type="text" id="eve" placeholder="Enter the event">
+            <input type="date" placeholder="dd/mm/yyyy" id="rem">
+            <button id="add">Add</button>
+        </div>
+    </div>
+
+    <div class="dates" id="Dates"></div>
+
+    <script>
+        document.getElementById("submit").onclick=function(){
+            let task=document.getElementById("task").value;
+            let d=document.getElementById("tod");
+            if(task.length>0){
+            let container=document.createElement("div");
+            container.classList.add("di");
+             let a=document.createElement("p");
+             a.innerHTML=task;
+             a.style.marginTop="10px"
+             a.style.marginLeft="10px"
+             container.appendChild(a);
+             let b=document.createElement("button");
+             b.id="deletebtn"
+             b.innerHTML="Delete";
+             b.style.height="20px"
+             b.style.marginTop="10px"
+             b.style.right="20px"
+             b.style.position="absolute"
+             container.appendChild(b);
+             d.appendChild(container);
+             document.getElementById("task").value="";
+             b.onclick=function(){
+                container.remove();
+             }
+            }
+    else{
+        alert("Kindly Enter the Task");
+        return;
+    }}
+    document.getElementById("Date").onclick=function(){
+        document.getElementById("to").style.display="none"
+        document.getElementById("tod").style.display="none"
+        document.getElementById("boxx").style.display="block"
+        document.getElementById("Dates").style.display="block"
+    }
+    document.getElementById("home").onclick=function(){
+        document.getElementById("to").style.display="block"
+        document.getElementById("tod").style.display="block"
+        document.getElementById("boxx").style.display="none"
+        document.getElementById("Dates").style.display="none"
+    }
+    document.getElementById("add").onclick=function(){
+        let boc=document.getElementById("Dates");
+        let a=document.getElementById("eve").value;
+        let b=document.getElementById("rem").value;
+        if(a.length!==0 && b!==""){
+        let c=document.createElement("div");
+        c.classList.add("things")
+        let d=document.createElement("p");
+        d.innerHTML=a;
+        d.style.marginTop="10px"
+        d.style.marginRight="20px"
+        d.style.marginLeft="10px"
+        c.appendChild(d);
+        let f=document.createElement("p");
+        f.innerHTML=b;
+        f.style.marginTop="10px"
+        c.appendChild(f);
+        let e=document.createElement("button");
+        e.innerHTML="Delete";
+        e.id="dbtn"
+        e.style.position="absolute"
+        e.style.height="20px"
+        e.style.marginTop="10px"
+        e.style.right="20px"
+        c.appendChild(e);
+        boc.appendChild(c);
+        document.getElementById("eve").value="";
+        document.getElementById("rem").value="";
+        e.onclick=function(){
+            c.remove();
+         }
+         }
+else{
+    alert("Fill up every details");
+    }}   
+    </script>
+</body>
+</html>
