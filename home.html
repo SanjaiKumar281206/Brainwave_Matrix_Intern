@@ -5,220 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* *{
-            outline: 1px solid black;
-        } */
         body{
             margin: 0%;
+            
         }
-        .navbar{
-            z-index: 10;
-            top: 0%;
-            position: sticky;
+        .nav{
             display: flex;
-            flex-direction: column;
+            position: sticky;
             height: 90px;
-            box-shadow: 0px 0px 10px black;
-            background-color: cornflowerblue;
+            background-color: rgba(61, 83, 231, 0.553);
+            box-shadow: 0px 0px 20px solid black;
         }
-        h1{
-            width: 100vw;
-            height: 50%;
-            margin-top: 0%;
+        .title{
+            top: 0%;
+            left: 5%;
+            width: 20%;
+            position: absolute;
+            transform: translate(-10%,-10%);
         }
-        .navigation{
-            margin-top: 30px;
+        .others{
             display: flex;
             position: absolute;
-            margin-left: 40px;
-            align-items: center;
-        }
-        #home,#Date{
-            margin-right: 20px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-radius: 5px;
+            top: 70%;
+            left: 70%;
+            transform: translate(-50%,-50%);
+            width: 50%;
+            justify-content: space-evenly;
             cursor: pointer;
+
         }
-        .todaytask{
-            margin-top: 20px;
-            width: 100vw;
-            align-items: center;
-            
-            
+        .navb:active{
+            color: azure;
         }
-        .di{
-        display: flex;
-            position: relative;
-            height: 40px;
-            background-color: lightblue;
-            margin-top: 5px;
-            border-radius: 5px;
+        input{
+         height: 20px;
+         position: absolute;
+         top: 10px;
+         left: 10px; 
         }
         .today{
-          position: relative;
-          width: 100vw;
-          height: 100px;
-        }
-        .content{
-            
-        
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        #home:active, #Date:active{
-               background-color: azure;
+            width: 100vw;
+            top: 10px;
+            height: 300px;
+            position: relative;
         }
         .box{
-            margin-top: 0%;
-            width: 100vw;
-            display: none;
-            position: relative;
-            flex-direction: column;
-            
-            }
-        .remain{
+            /* outline:  1px solid black; */
             position: absolute;
-            left:50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 500px;
+            height: 300px;
+            border-radius: 10px;
+            background-image: url(https://static.vecteezy.com/system/resources/previews/026/300/578/non_2x/deal-of-the-day-labels-banners-design-festive-template-can-be-used-for-invitation-cards-flyers-posters-vector.jpg);
+            background-size: cover;
+            background-position: 50%;
         }
-        #add{
-            width: 60px;
-            margin-left: 32%;
-        }
-        #eve,#rem{
-            margin: 5px;
-        }
-        .dates{
-            display: none;
-            margin-top: 180px;
-            width: 100vw;
-        }
-        .things{
-            display: flex;
-            height: 40px;
-            border-radius: 5px;
+        .container{
+            top: 40px;
             position: relative;
-            margin-top: 5px;
-            background-color: lightsteelblue;
+            height: 100%;
+            display: flex;
+            width: 100vw;
+            flex-wrap: wrap;
+            justify-content: center;
+            column-gap: 70px;
+            row-gap: 20px;
         }
         
+       .deals{
+        height: 200px;
+        width: 400px;
+        border-radius: 10px;
+       }
+       .deals:hover{
+        transition: 0.6s ease-in;
+        transform: scale(1.1) ;
+       }
+        
+
     </style>
 </head>
 <body>
-
-    <div class="navbar" id="nav">
-            <h1>Day Planner</h1>
-            <div class="navigation">
-                <p id="home">Home</p>
-                <p id="Date">Add Date</p>
-            </div>
-    </div>
-
-    <div class="today" id="to">
-            <div class="content">
-                <h2>Today's Tasks</h2>
-                <input type="text" id="task" placeholder="Enter the task">
-                <button id="submit" style="width: 60px; margin-left: 30%; margin-top: 5px; margin-bottom: 5px;">Submit</button>
-            </div>
-    </div>
-   
-     <div class="todaytask" id="tod" ></div>
-
-    <div class="box" id="boxx">
-        <div class="remain" id="remainder">
-            <h2>Add a date</h2>
-            <input type="text" id="eve" placeholder="Enter the event">
-            <input type="date" placeholder="dd/mm/yyyy" id="rem">
-            <button id="add">Add</button>
+    <div class="nav">
+        <h1 class="title">E-Cart</h1>
+        <div class="others">
+            <h4 class="navb">Home</h4>
+            <h4 class="navb" id="prod">Products</h4>
+            <h4 class="navb">Contact Us</h4>
         </div>
     </div>
 
-    <div class="dates" id="Dates"></div>
-
+    <div class="today">
+        <div class="box"></div>
+    </div>
+    <div class="container">
+        <div class="deals" style="background-image: url(https://tse3.mm.bing.net/th/id/OIP.fDizYUZluhFE0Q2kWxx4HAHaEK?pid=Api&P=0&h=180);background-size: cover; background-repeat: no-repeat;"></div>
+        <div class="deals" style="background-image: url(https://tse3.mm.bing.net/th/id/OIP.fDizYUZluhFE0Q2kWxx4HAHaEK?pid=Api&P=0&h=180);background-size: cover; background-repeat: no-repeat;"></div>
+        <div class="deals" style="background-image: url(https://tse3.mm.bing.net/th/id/OIP.fDizYUZluhFE0Q2kWxx4HAHaEK?pid=Api&P=0&h=180);background-size: cover; background-repeat: no-repeat;"></div>
+        <div class="deals" style="background-image: url(https://tse3.mm.bing.net/th/id/OIP.fDizYUZluhFE0Q2kWxx4HAHaEK?pid=Api&P=0&h=180);background-size: cover; background-repeat: no-repeat;"></div>
+    </div>
     <script>
-        document.getElementById("submit").onclick=function(){
-            let task=document.getElementById("task").value;
-            let d=document.getElementById("tod");
-            if(task.length>0){
-            let container=document.createElement("div");
-            container.classList.add("di");
-             let a=document.createElement("p");
-             a.innerHTML=task;
-             a.style.marginTop="10px"
-             a.style.marginLeft="10px"
-             container.appendChild(a);
-             let b=document.createElement("button");
-             b.id="deletebtn"
-             b.innerHTML="Delete";
-             b.style.height="20px"
-             b.style.marginTop="10px"
-             b.style.right="20px"
-             b.style.position="absolute"
-             container.appendChild(b);
-             d.appendChild(container);
-             document.getElementById("task").value="";
-             b.onclick=function(){
-                container.remove();
-             }
-            }
-    else{
-        alert("Kindly Enter the Task");
-        return;
-    }}
-    document.getElementById("Date").onclick=function(){
-        document.getElementById("to").style.display="none"
-        document.getElementById("tod").style.display="none"
-        document.getElementById("boxx").style.display="block"
-        document.getElementById("Dates").style.display="block"
-    }
-    document.getElementById("home").onclick=function(){
-        document.getElementById("to").style.display="block"
-        document.getElementById("tod").style.display="block"
-        document.getElementById("boxx").style.display="none"
-        document.getElementById("Dates").style.display="none"
-    }
-    document.getElementById("add").onclick=function(){
-        let boc=document.getElementById("Dates");
-        let a=document.getElementById("eve").value;
-        let b=document.getElementById("rem").value;
-        if(a.length!==0 && b!==""){
-        let c=document.createElement("div");
-        c.classList.add("things")
-        let d=document.createElement("p");
-        d.innerHTML=a;
-        d.style.marginTop="10px"
-        d.style.marginRight="20px"
-        d.style.marginLeft="10px"
-        c.appendChild(d);
-        let f=document.createElement("p");
-        f.innerHTML=b;
-        f.style.marginTop="10px"
-        c.appendChild(f);
-        let e=document.createElement("button");
-        e.innerHTML="Delete";
-        e.id="dbtn"
-        e.style.position="absolute"
-        e.style.height="20px"
-        e.style.marginTop="10px"
-        e.style.right="20px"
-        c.appendChild(e);
-        boc.appendChild(c);
-        document.getElementById("eve").value="";
-        document.getElementById("rem").value="";
-        e.onclick=function(){
-            c.remove();
-         }
-         }
-else{
-    alert("Fill up every details");
-    }}   
+        document.getElementById("prod").onclick=function(){
+            window.location.href="products.html"
+        }
     </script>
 </body>
 </html>

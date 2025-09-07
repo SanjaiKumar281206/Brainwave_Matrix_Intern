@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0%;
+        }
+        .nav{
+            z-index: 1;
+            position: fixed;
+            width: 100vw;
+            height: 100px;
+            justify-content: center;
+            align-items: center;
+            background-color: blueviolet;
+
+        }
+        input{
+            left: 50%;
+            top: 50%;
+            position: absolute;
+            width: 50%;
+            display: flex;
+            transform: translate(-50%,-50%);
+        }
+        .container{
+            position: relative;
+            height: 100%;
+            top: 110px;
+            /* background-color: black; */
+            width: 100vw;
+            display: flex;
+            column-gap: 25px;
+            flex-wrap: wrap;
+            row-gap: 10px;    
+            justify-content: center;
+        }
+        .box{
+           /* background-color: green; */
+           height:200px ;
+           width: 200px;
+           position: relative;
+           justify-content: space-around;
+           border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <input type="search" placeholder="Search Products">
+    </div>
+    <div class="container">
+        <div class="box" style="background-image: url(https://images.squarespace-cdn.com/content/56e854d21d07c037ee342a2e/1681945449519-24O8WEWH6FUH229SWK24/126503+black.png?content-type=image%2Fpng);background-size: cover; background-position: 60%;"></div>
+        <div class="box" style="background-image: url(https://m.media-amazon.com/images/I/61SUj2aKoEL._SL1500_.jpg); background-size: cover; background-position: 50%;"></div>
+        <div class="box" style="background-image: url(https://static1.xdaimages.com/wordpress/wp-content/uploads/2023/09/iphone-15-pro-max-render.png); background-size: cover; background-position: 50%;"></div>
+        <div class="box" style="background-image: url(https://ecart.mu/wp-content/uploads/2020/12/X571GD-BQ395R-1.jpg);background-size: cover; background-position: 100%;"></div>
+        <div class="box" style="background-image: url(https://cdn.snaffle.com.au/rec13cu57dla9UmRb/variant/thumbnail-large/att1yepXMVJCgrZ8l);background-size: cover;background-position: 50%;"></div>
+        <div class="box" style="background-image: url(https://www.officedepot.com.mx/medias/100117011.jpg-1200ftw?context=bWFzdGVyfHJvb3R8MzQxMDg1fGltYWdlL2pwZWd8aDJlL2g2YS8xMTQxNDk5NDEyNDgzMC8xMDAxMTcwMTEuanBnXzEyMDBmdHd8ZWMwOWVmYWE5ZGY0NTEwOTVlZmNiMmRkM2JmM2YwNWE3YzRlNGVlYjNkNzExZTE2MzViM2Y3NDY2NjU2N2QzOQ);background-size: cover;"></div>
+        <div class="box" style="background-image: url(https://ecart.mu/wp-content/uploads/2021/02/HD606FWDE.png); background-size: cover;"></div>
+        <div class="box" style="background-image: url(https://ecart.mu/wp-content/uploads/2022/04/RO14146DWMCRE-S.jpg); background-size: cover;"></div>
+        <div class="box" style="background-image: url(https://supa-ecart.co.za/wp-content/uploads/2025/02/dry-and-wet-air-blowing-carpet-drum-electric-canister-vacuum-cleaner.jpg);background-size: cover;"></div>
+        <div class="box" style="background-image: url(https://ecart.mu/wp-content/uploads/2020/12/AG928E3DB.jpg);background-size: cover;"></div>
+        
+    </div>
+</body>
+</html>
