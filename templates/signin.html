@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign-In</h1>
+        <form action="/usersignin" method="post">
+            <input type="text" name="newuser" placeholder="Enter any username" id="newuse">
+            <input type="password" name="newpass" placeholder="Create your password" id="newp">
+            <input type="password" name="repass" placeholder="Re-enter your password" id="repass">
+            <input type="submit" value="Sign-in" id="b">
+
+        </form>
+    </div>
+    <script>
+        document.getElementById("b").onclick=function(event){
+           let user=document.getElementById("newuse").value;
+           let newpass=document.getElementById("newp").value;
+           let repass=document.getElementById("repass").value;
+
+           if(user.length<8 || newpass.length<8){
+            event.preventDefault();
+            alert("Username and password should be of 8 characters")
+            return;
+
+           }
+           else if(newpass!==repass){
+            event.preventDefault();
+            alert("Passwords doesn't match");
+            return;
+           }
+window.location.href="/usersignin";
+
+    
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            margin: 0%;
+}
+        .loginpage{
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            position: fixed;
+            width: 100vw;
+            height:200px;
+            border-radius: 10px;
+        }
+        .container{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            align-items: center;
+            background-color: aquamarine;
+            border-radius: 10px;
+        }
+        #name,#pass{
+            width: 90%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        #no{
+            margin-top: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="loginpage"><div class="container">
+    <h1>Login</h1>
+        <form action="/home" method="post">
+        <input type="text" placeholder="Enter your username" id="name" name="username">
+        <input type="password" placeholder="Enter your password" id="pass" name="password">
+        <input type="submit" value="Submit" id="b" >
+    </form>
+
+        <h5 id="no">Don't have an account?<a href="/signin" id="newac">Sign-in</a></h5>
+
+    </div>
+    </div>
+<script>
+    document.getElementById("b").onclick=async function(event){
+        event.preventDefault();
+        let username=document.getElementById("name").value;
+        let password=document.getElementById("pass").value;
+            let response=await fetch("http://127.0.0.1:5000/home",{
+                method:"POST",headers:{"Content-Type":"application/json"},
+                body:JSON.stringify({username:username,password:password})
+            });
+            const data=await response.json();
+            if(!response.ok){
+                alert(data.error);
+            }
+            else{
+
+            alert("login successful");
+            window.location.href="/home";
+            return;}
+        
+    document.getElementById("newac").onclick=function(){
+        window.location.href="/signin";
+    }}
+    
+</script>
+</body>
+</html>

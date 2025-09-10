@@ -12,7 +12,7 @@
             margin: 0%;
         }
         .navbar{
-            z-index: 10;
+            z-index:1;
             top: 0%;
             position: sticky;
             display: flex;
@@ -124,7 +124,9 @@
     <div class="today" id="to">
             <div class="content">
                 <h2>Today's Tasks</h2>
-                <input type="text" id="task" placeholder="Enter the task">
+                <form action="/task" method="post">
+                    <input type="text" id="task" placeholder="Enter the task" name="today">
+                </form>
                 <button id="submit" style="width: 60px; margin-left: 30%; margin-top: 5px; margin-bottom: 5px;">Submit</button>
             </div>
     </div>
@@ -132,12 +134,15 @@
      <div class="todaytask" id="tod" ></div>
 
     <div class="box" id="boxx">
-        <div class="remain" id="remainder">
-            <h2>Add a date</h2>
-            <input type="text" id="eve" placeholder="Enter the event">
-            <input type="date" placeholder="dd/mm/yyyy" id="rem">
-            <button id="add">Add</button>
-        </div>
+        <form action="/remain">
+
+            <div class="remain" id="remainder">
+                <h2>Add a date</h2>
+                <input type="text" id="eve" placeholder="Enter the event" name="event">
+                <input type="date" placeholder="dd/mm/yyyy" id="rem" name="addate">
+                <button id="add">Add</button>
+            </div>
+        </form>
     </div>
 
     <div class="dates" id="Dates"></div>
@@ -184,11 +189,12 @@
         document.getElementById("boxx").style.display="none"
         document.getElementById("Dates").style.display="none"
     }
-    document.getElementById("add").onclick=function(){
+    document.getElementById("add").addEventListener("click",function(event){
         let boc=document.getElementById("Dates");
         let a=document.getElementById("eve").value;
         let b=document.getElementById("rem").value;
         if(a.length!==0 && b!==""){
+        event.preventDefault();
         let c=document.createElement("div");
         c.classList.add("things")
         let d=document.createElement("p");
@@ -217,8 +223,9 @@
          }
          }
 else{
+    event.preventDefault();
     alert("Fill up every details");
-    }}   
+    }}   )
     </script>
 </body>
 </html>
